@@ -1,3 +1,5 @@
+<p align="center"><img src="/metrics.terminal.svg" alt="Metrics" width="400"></p>
+
 ```
 root:~$ whoami
 Santiago
