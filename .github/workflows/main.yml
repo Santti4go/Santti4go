@@ -7,16 +7,27 @@ on:
   # (optional) Run workflow when pushing on master/main
   push: {branches: ["master", "main"]}
 jobs:
-  github-metrics:
+  date-difference:
     runs-on: ubuntu-latest
-    environment: 
-      name: production
-    permissions:
-      contents: write
     steps:
-      - uses: Santti4go/metrics@master
-        with:
-          template: terminal
-          filename: metrics.terminal.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: header, repositories
+      - name: Calculate date difference
+        run: |
+          FIXED_DATE="1998-03-21"
+          CURRENT_DATE=$(date +%F)
+          DIFF=$(($(date -d $CURRENT_DATE +%s) - $(date -d $FIXED_DATE +%s)))
+          DIFF_DAYS=$(($DIFF / 86400))
+          echo "Difference in days: $DIFF_DAYS"
+
+#  github-metrics:
+ #   runs-on: ubuntu-latest
+ #   environment: 
+ #     name: production
+ #   permissions:
+ #     contents: write
+ #   steps:
+ #     - uses: Santti4go/metrics@master
+ #       with:
+ #         template: terminal
+ #         filename: metrics.terminal.svg
+ #         token: ${{ secrets.METRICS_TOKEN }}
+ #         base: header, repositories
