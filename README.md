@@ -9,4 +9,4 @@ Santiago
     - santiaupi@gmail.com
     - www.linkedin.com/in/SantiagoAupi
 
-<p align="center"><img src="/metrics.terminal.svg" alt="Metrics" width="400"></p>
+<p align="center"><img src="/metrics.terminal.svg" alt="Metrics" width="100%"></p>
