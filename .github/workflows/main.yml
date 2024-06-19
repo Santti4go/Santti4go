@@ -15,10 +15,12 @@ jobs:
           FIXED_DATE="1998-03-21"
           CURRENT_DATE=$(date +%F)
           DIFF=$(($(date -d $CURRENT_DATE +%s) - $(date -d $FIXED_DATE +%s)))
-          DIFF_DAYS=$(($DIFF / 86400))
-          echo "Difference in days: $DIFF_DAYS"
+          DIFF_YEARS=$(echo "$DIFF / 31557600" | bc -l)
+          echo "Difference in years: $DIFF_DAYS" # 31557600 = 365.25 * 24 * 60 * 60
+          echo "::set-output name=my_age::$DIFF_YEARS"
 
   github-metrics:
+    needs: date-difference
     runs-on: ubuntu-latest
     environment: 
       name: production
@@ -28,6 +30,7 @@ jobs:
       - uses: Santti4go/metrics@test-terminal
         with:
           template: terminal
+          my_age: ${{ needs.date-difference.my_age }}
           filename: metrics.terminal.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: header, repositories
