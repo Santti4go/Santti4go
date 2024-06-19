@@ -18,16 +18,16 @@ jobs:
           DIFF_DAYS=$(($DIFF / 86400))
           echo "Difference in days: $DIFF_DAYS"
 
-#  github-metrics:
- #   runs-on: ubuntu-latest
- #   environment: 
- #     name: production
- #   permissions:
- #     contents: write
- #   steps:
- #     - uses: Santti4go/metrics@master
- #       with:
- #         template: terminal
- #         filename: metrics.terminal.svg
- #         token: ${{ secrets.METRICS_TOKEN }}
- #         base: header, repositories
+  github-metrics:
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+    permissions:
+      contents: write
+    steps:
+      - uses: Santti4go/metrics@test-terminal
+        with:
+          template: terminal
+          filename: metrics.terminal.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: header, repositories
