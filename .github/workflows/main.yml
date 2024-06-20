@@ -30,7 +30,7 @@ jobs:
       - uses: Santti4go/metrics@test-terminal
         with:
           template: terminal
-          my_age: ${{ needs.date-difference.my_age }}
+          my-age: ${{ needs.date-difference.my_age }}
           filename: metrics.terminal.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: header, repositories
