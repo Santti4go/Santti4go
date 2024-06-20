@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Calculate date difference
+        id: get-age
         run: |
           FIXED_DATE="1998-03-21"
           CURRENT_DATE=$(date +%F)
@@ -18,6 +19,7 @@ jobs:
           DIFF_YEARS=$(echo "$DIFF / 31557600" | bc -l)
           echo "Difference in years: $DIFF_DAYS" # 31557600 = 365.25 * 24 * 60 * 60
           echo "::set-output name=my_age::$DIFF_YEARS"
+          echo "my_age=$DIFF_YEARS" >> $GITHUB_OUTPUT
 
   github-metrics:
     needs: date-difference
@@ -30,7 +32,7 @@ jobs:
       - uses: Santti4go/metrics@test-terminal
         with:
           template: terminal
-          my-age: ${{ needs.date-difference.my_age }}
+          my_age: "${{ needs.date-difference.outputs.my_age }}"
           filename: metrics.terminal.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: header, repositories
