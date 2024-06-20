@@ -34,4 +34,4 @@ jobs:
           my_age: 26
           filename: metrics.terminal.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          base: header, repositories
+          base: header, repositories}
