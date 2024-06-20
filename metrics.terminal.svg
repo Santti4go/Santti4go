@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="325" class="">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="485" class="">
   
 
   <defs><style>@font-face {
@@ -45,6 +45,15 @@ dr-x  <b>    0</b>  packages
 dr-x         LICENSE
 -r--         └── Apache-2.0
 </div>
+
+
+sudo -ll
+User ${`${user.login}`.toLocaleLowerCase()} may run the following commands as root:
+Robotics
+Cybersecurity
+Maths
+Age: ${user.my_age}
+
 
 </pre>
 
