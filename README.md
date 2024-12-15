@@ -10,3 +10,5 @@ Santiago
     - www.linkedin.com/in/SantiagoAupi
 
 <p align="center"><img src="/metrics.terminal.svg" alt="Metrics" width="50%"></p>
+
+![Santti4go's GitHub stats](https://github-readme-stats.vercel.app/api?username=santti4go&show_icons=true&theme=radical)
