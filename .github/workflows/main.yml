@@ -6,22 +6,22 @@ on:
   # Run workflow when pushing on master/main
   push: {branches: ["master", "main"]}
 jobs:
-  date-difference:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Calculate date difference
-        id: get-age
-        run: |
-          FIXED_DATE="1998-03-21"
-          CURRENT_DATE=$(date +%F)
-          DIFF=$(($(date -d $CURRENT_DATE +%s) - $(date -d $FIXED_DATE +%s)))
-          DIFF_YEARS=$(echo "$DIFF / 31557600" | bc -l)
-          echo "Difference in years: $DIFF_DAYS" # 31557600 = 365.25 * 24 * 60 * 60
-          echo "::set-output name=my_age::$DIFF_YEARS"
-          echo "my_age=$DIFF_YEARS" >> $GITHUB_OUTPUT
+#  date-difference:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Calculate date difference
+#        id: get-age
+#        run: |
+#          FIXED_DATE="1998-03-21"
+#          CURRENT_DATE=$(date +%F)
+#          DIFF=$(($(date -d $CURRENT_DATE +%s) - $(date -d $FIXED_DATE +%s)))
+#          DIFF_YEARS=$(echo "$DIFF / 31557600" | bc -l)
+#          echo "Difference in years: $DIFF_DAYS" # 31557600 = 365.25 * 24 * 60 * 60
+#          echo "::set-output name=my_age::$DIFF_YEARS"
+#          echo "my_age=$DIFF_YEARS" >> $GITHUB_OUTPUT
 
   github-metrics:
-    needs: date-difference
+#    needs: date-difference
     runs-on: ubuntu-latest
     environment: 
       name: production
